@@ -7,3 +7,5 @@ subnet_id     = "subnet-xxxxx"
 checkly_api_key      = "cu_xxxxx"
 checkly_account_id   = "xxxxx"
 
+# Stripe
+stripe_api_key = ""

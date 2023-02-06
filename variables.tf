@@ -28,3 +28,7 @@ variable "checkly_api_key" {
 variable "checkly_account_id" {
   type = string
 }
+
+variable "stripe_api_key" {
+  type = string
+}

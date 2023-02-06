@@ -64,3 +64,38 @@ resource "checkly_check" "sendgrid_check" {
     }
   }
 }
+
+resource "checkly_check" "stripe_check" {
+  name                      = "Stripe Products check"
+  type                      = "API"
+  activated                 = true
+  should_fail               = false
+  frequency                 = 15
+  double_check              = true
+  use_global_alert_settings = true
+
+  locations = [
+    "eu-west-1",
+    "eu-west-2"
+  ]
+
+  tags = ["aws", "terraform", "stripe"]
+
+  request {
+    url              = "https://api.stripe.com/v1/products"
+    follow_redirects = true
+    body_type        = "JSON"
+    method           = "GET"
+
+    assertion {
+      source     = "STATUS_CODE"
+      comparison = "EQUALS"
+      target     = "200"
+    }
+
+    basic_auth {
+      username = var.stripe_api_key
+      password = "x"
+    }
+  }
+}
