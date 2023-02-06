@@ -1,0 +1,9 @@
+my_ip_address = "" # Your current IP address for SSH access
+ami_id        = "ami-03d568a0c334477dd" # Ubuntu 22.04 ARM
+vpc_id        = "vpc-xxxxx"
+subnet_id     = "subnet-xxxxx"
+
+# Checkly
+checkly_api_key      = "cu_xxxxx"
+checkly_account_id   = "xxxxx"
+

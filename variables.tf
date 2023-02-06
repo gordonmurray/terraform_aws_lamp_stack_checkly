@@ -4,12 +4,15 @@ variable "aws_region" {
 }
 
 variable "ami_id" {
-  type    = string
-  default =  "ami-03d568a0c334477dd" # Ubuntu 22.04 ARM
+  type = string
+}
+
+variable "vpc_id" {
+  type = string
 }
 
 variable "subnet_id" {
-  type    = string
+  type = string
 }
 
 variable "my_ip_address" {
@@ -24,9 +27,4 @@ variable "checkly_api_key" {
 
 variable "checkly_account_id" {
   type = string
-}
-
-variable "private_location_key" {
-  type        = string
-  description = "A key for a Checkly Private Location in the format of pl_xxxxxx"
 }
