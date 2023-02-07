@@ -26,6 +26,10 @@ resource "checkly_check" "webserver_check" {
       target     = "200"
     }
   }
+
+  depends_on = [
+    aws_instance.webserver
+  ]
 }
 
 resource "checkly_check" "sendgrid_check" {
