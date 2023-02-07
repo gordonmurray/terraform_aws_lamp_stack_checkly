@@ -12,7 +12,7 @@ resource "checkly_check" "webserver_check" {
     "eu-west-2"
   ]
 
-  tags = ["aws", "terraform"]
+  tags = ["aws", "terraform", "api"]
 
   request {
     url              = "http://${aws_instance.webserver.public_dns}"
@@ -46,7 +46,7 @@ resource "checkly_check" "sendgrid_check" {
     "eu-west-2"
   ]
 
-  tags = ["aws", "terraform", "sendgrid"]
+  tags = ["aws", "terraform", "sendgrid", "api"]
 
   request {
     url              = "https://status.sendgrid.com/api/v2/summary.json"
@@ -83,7 +83,7 @@ resource "checkly_check" "stripe_check" {
     "eu-west-2"
   ]
 
-  tags = ["aws", "terraform", "stripe"]
+  tags = ["aws", "terraform", "stripe", "api"]
 
   request {
     url              = "https://api.stripe.com/v1/products"

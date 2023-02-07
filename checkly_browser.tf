@@ -3,7 +3,7 @@ data "local_file" "browser_script" {
 }
 
 resource "checkly_check" "php_check" {
-  name                      = "PHP version check"
+  name                      = "Webserver PHP version check"
   type                      = "BROWSER"
   activated                 = true
   should_fail               = false
@@ -17,7 +17,7 @@ resource "checkly_check" "php_check" {
     "eu-west-2"
   ]
 
-  tags = ["aws", "terraform"]
+  tags = ["aws", "terraform", "browser"]
 
   script = data.local_file.browser_script.content
 }

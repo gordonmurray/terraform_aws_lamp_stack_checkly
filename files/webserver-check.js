@@ -1,14 +1,12 @@
-const { expect, test } = require('@playwright/test')
+const playwright = require('playwright')
+const expect = require('expect')
 
-test('visit page and take screenshot', async ({ page }) => {
+const browser = await playwright.chromium.launch()
+const page = await browser.newPage()
 
-  // WEBSERVER_URL is a custom environment variable
-  const response = await page.goto(process.env.WEBSERVER_URL)
+await page.goto(process.env.WEBSERVER_URL + '/info.php')
 
-  expect(response.status()).toBe(200)
+const name = await page.$eval('h1', el => el.textContent.trim())
+expect(name).toContain('PHP Version 8.1')
 
-  //expect(response.contentType()).toBe('text/html; charset=UTF-8')
-
-  //expect(response.body()).toContain('PHP Version 8.1')
-
-})
+await browser.close()
