@@ -6,7 +6,8 @@ const page = await browser.newPage()
 
 await page.goto(process.env.WEBSERVER_URL + '/info.php')
 
-const name = await page.$eval('h1', el => el.textContent.trim())
-expect(name).toContain('PHP Version 8.1')
+const heading = await page.$eval('h1', el => el.textContent.trim())
+
+expect(heading).toContain('PHP Version 8.1')
 
 await browser.close()
