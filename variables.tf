@@ -32,3 +32,8 @@ variable "checkly_account_id" {
 variable "stripe_api_key" {
   type = string
 }
+
+variable "email_address" {
+  type        = string
+  description = "An email address to receive Checkly alerts"
+}

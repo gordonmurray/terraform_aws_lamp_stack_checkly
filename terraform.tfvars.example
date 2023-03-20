@@ -9,3 +9,6 @@ checkly_account_id   = "xxxxx"
 
 # Stripe
 stripe_api_key = ""
+
+# Email address for alerts
+email_address = ""
